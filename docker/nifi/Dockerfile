@@ -67,6 +67,7 @@ RUN mv ClouderaImpalaJDBC4_2.5.42/* /usr/nifi/drivers/impala
 
 # Expose default nifi port
 EXPOSE 8080
+EXPOSE 8000
 
 RUN apk update
 RUN apk add --no-cache krb5-libs krb5 krb5-dev sudo coreutils python cyrus-sasl alpine-sdk libsasl libffi-dev openssl-dev cyrus-sasl-dev && \

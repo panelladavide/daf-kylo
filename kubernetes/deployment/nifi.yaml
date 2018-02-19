@@ -26,6 +26,7 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 8033 # To test basic templates inside nifi
+        - containerPort: 8000 # enable debug nifi
         resources: {}
         volumeMounts:
         - name: glusterfsvol

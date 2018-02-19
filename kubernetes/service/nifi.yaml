@@ -15,6 +15,10 @@ spec:
     port: 8080
     targetPort: 8080
     nodePort: 31080
+  - name: "8000"
+    port: 8000
+    targetPort: 8000
+    nodePort: 31089
   selector:
     io.kompose.service: tba-nifi
 status:

@@ -280,7 +280,7 @@ data:
     java.arg.3=-Xmx4g
 
     # Enable Remote Debugging
-    #java.arg.debug=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+    java.arg.debug=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
 
     java.arg.4=-Djava.net.preferIPv4Stack=true
 
@@ -485,6 +485,7 @@ data:
 
         <!-- Suppress non-error messages due to known warning about redundant path annotation (NIFI-574) -->
         <logger name="com.sun.jersey.spi.inject.Errors" level="ERROR"/>
+        <logger name="org.apache.nifi.processors.standard.InvokeHTTP" level="DEBUG"/>
 
         <!--
             Logger for capturing user events. We do not want to propagate these
