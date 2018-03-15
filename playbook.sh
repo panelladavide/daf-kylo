@@ -1,5 +1,5 @@
 #!/bin/bash -x
-
+ass
 case $1 in
 
   all)
