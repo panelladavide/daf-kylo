@@ -24,27 +24,51 @@ brew update
 brew install kubectl rpm make git
 ```
 
-In order to be able to build most of Docker images kylo code will be required (source and compiled). To get this run:
+In order to be able to build most of Docker images kylo code will be required (source and compiled).
+Remember to setup the right version for the artifacts.
+
+To get this run for test:
 
 ```
-make daf-kylo
-make build-kylo
+make -f Makefile.test daf-kylo
+make -f Makefile.test build-kylo
 ```
 
+for production
+
+```
+make -f Makefile.prod daf-kylo
+make -f Makefile.prod build-kylo
+```
 
 This will use `Makefile` to download the code and compile it.
 
 ### Build Docker images of the components
 Once this is completed build every image:
 
+#### For Test
+
 ```
-make activemq
-make elasticsearch
-make mysql
-make kylo-services
-make kylo-ui
-make nifi
+make -f Makefile.test activemq
+make -f Makefile.test elasticsearch
+make -f Makefile.test mysql
+make -f Makefile.test kylo-services
+make -f Makefile.test kylo-ui
+make -f Makefile.test nifi
 ```
+
+#### For production
+
+```
+make -f Makefile.prod activemq
+make -f Makefile.prod elasticsearch
+make -f Makefile.prod mysql
+make -f Makefile.prod kylo-services
+make -f Makefile.prod kylo-ui
+make -f Makefile.prod nifi
+```
+
+
 This will use `Makefile` to download the basic empty images and build our custom docker images with required tagging.
 
 
@@ -57,7 +81,9 @@ After config and proper tagging has been done, push can be performed by: `docker
 
 for instance:
   ```
-  docker push nexus.default.svc.cluster.local:5000/tba-kylo-services.8.4.0:1.0.0
+  # Working ON!!
+  export REGISTRY=nexus.teamdigitale.test
+  docker push $REGISTRY/tba-kylo-services.8.4.0:1.0.0
   ```
 
 ### Deploy components in kubernetes cluster
