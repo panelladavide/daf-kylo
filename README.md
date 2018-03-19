@@ -39,7 +39,6 @@ Once this is completed build every image:
 
 ```
 make activemq
-make elasticsearch
 make mysql
 make kylo-services
 make kylo-ui
@@ -53,11 +52,14 @@ Please ensure previously configuration of docker client as well as correct taggi
 [TeamDigitale onboarding  'Setup Docker '](https://docs.google.com/document/d/1KqeaZ2yj7rofslqzklYTCLb3AxPnV1mzOgSXOuTHTyw/edit?ts=59faf23f&pli=1#heading=h.ubxuumcef218)
 [TeamDigitale onboarding  'Push Docker Image'](https://docs.google.com/document/d/1KqeaZ2yj7rofslqzklYTCLb3AxPnV1mzOgSXOuTHTyw/edit?ts=59faf23f&pli=1#heading=h.47zm3aqq5wip)
 
-After config and proper tagging has been done, push can be performed by: `docker push [repositoryurl:repositoryport/artifact:version]`
+After config and proper tagging has been done, push can be performed by: `docker push [repositoryurl:repositoryport/artifact:version]:
 
-for instance:
   ```
-  docker push nexus.default.svc.cluster.local:5000/tba-kylo-services.8.4.0:1.0.0
+docker push nexus.teamdigitale.test/tba-nifi.1.4.0
+docker push nexus.teamdigitale.test/tba-kylo-ui.8.4
+docker push nexus.teamdigitale.test/tba-kylo-services.8.4
+docker push nexus.teamdigitale.test/tba-mysql.10.3
+docker push nexus.teamdigitale.test/tba-activemq.5.15.1
   ```
 
 ### Deploy components in kubernetes cluster

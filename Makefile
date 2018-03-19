@@ -1,6 +1,6 @@
 default: all
 
-REGISTRY=nexus.default.svc.cluster.local:5000
+REGISTRY=nexus.teamdigitale.test
 
 
 .PHONY: activemq
